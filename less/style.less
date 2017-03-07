@@ -1,0 +1,235 @@
+@linear-gradient-1: linear-gradient(120deg,#42B996,#42B996);
+@linear-gradient-2: linear-gradient(120deg,#DED9CD,#DED9CD);
+
+//--Mixins--//
+
+.position-1{
+	width: 100%;
+	display: flex;
+	justify-content: center; 
+}
+
+//--------------------------------------------------------------------------------//
+
+
+//---General--//
+
+html{
+	user-select: none;
+	font-size: 10px;
+	@media (max-width : 320px){
+		font-size: 5px;
+	}
+	cursor: default;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+h2{
+	margin: 0;
+	padding: 0;
+    font-size: 2rem;
+}
+
+*:focus{
+    outline: none;
+}
+
+//--------------------------------------------------------------------------------//
+
+div#page{
+	height: 100%;
+	.position-1;
+	& > div.container{ 
+		max-width: 640px;
+		.position-1; 
+		min-width: 320px;
+		flex-wrap: wrap;
+		background-image: @linear-gradient-2;
+		overflow: hidden;
+	}
+}
+
+.search-panel{
+	padding: .5rem 0;
+	padding-top: 1rem;
+	box-sizing: border-box;
+	height: 6.9rem;
+	margin-top: -7.5rem;
+	& > input.search-panel__input{
+		width: 94%;
+		font-size: 2rem;
+		line-height: 2rem;
+		height: 3rem;
+		text-align: center;
+		font-weight: bold;
+	}
+}
+
+
+.menu-level--2,.search-panel{
+	background: #0da176;
+	.position-1;
+	z-index: 1;
+	transition: .3s;
+	position: relative;
+	&.active{
+		margin-top: 0;
+	}
+	box-shadow: 0 0 2.75rem -1.5rem #34826b;
+}
+
+.menu-level--2{
+	overflow: hidden;
+	font-size: 2.6rem;
+	padding: 1rem 0;
+	& > ul{
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+		margin: 0;
+		padding: 1rem 0 0 0;
+		width: 100%;
+		display: flex;
+		list-style-type: none;
+	}
+	& li{
+		padding: .2rem 1.5rem;
+		border-width: 0 1px 0 0;
+		border-style: solid;
+		border-color: rgba(0,0,0,.15);
+		&.active{
+			color: #fff;
+		}
+	}
+}
+
+.search-panel{
+	padding: .5rem;
+}
+
+.header-container{
+	width: 100%;
+}
+
+header.header{
+	z-index: 2;
+	.position-1;
+	position: relative;
+	height: 7.5rem;
+	background-image: @linear-gradient-1;
+	border-radius: 0 0 .25rem .25rem;
+	box-shadow: 0 0 1.75rem .15rem #34826b;
+	align-items: center;
+	& .header__menu,& .header__search{
+		display: flex;
+		width: 8rem;
+		height: 100%;
+		align-content: flex-start;
+		align-items: flex-start;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-color: rgba(0,0,0,0.15);
+		border-style: solid;
+		border-width: 0 1px 0 0;
+		background: transparent;
+		&  .material-icons{
+			display: flex;
+			font-size: 4.8rem;
+		}
+		& span.menu-container, & span.search-container{
+			width: 4.8rem;
+			height: 4.8rem;
+			display: block;
+			position: relative;
+			left: 50%;
+			margin-left: -2.4rem;
+			top: 50%;
+			margin-top: -2.4rem;
+		}
+
+		& span.search-container{
+			right: 50%;
+			margin-right: -2.4rem;
+		}
+
+		&.active span.menu-container, &:hover span.menu-container{
+			transform: rotate(45deg);
+		}
+
+		&.active,&:hover{
+			background: #0da176;
+		}
+	}
+
+	& .header__search{
+		right: 0;
+		left: auto;
+		border-width: 0 0 0 1px;
+	}
+}
+
+content{
+	padding: 1.5rem .5rem .5rem .5rem;
+	.position-1;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	& > item{
+		&:not(first-child){ 
+			margin-bottom: .6rem;
+		} 
+		padding: 1rem .5rem;
+		background: #FBFBFA;
+		width: 100%;
+		border-radius: .25rem;
+		display: flex;
+		box-shadow: .05rem .1rem 2rem -.75rem #000;
+		& > .item__img{
+			flex-shrink: 0;
+			width: 13rem;
+			height: 13rem;
+		}
+
+		& > .item__text{
+			padding: 0 1rem;
+		    flex-shrink: 1;
+		    & > .title{
+		    	margin-bottom: .6rem;
+		    	font-size: 2rem;
+		    }
+		    & > .text{
+		    	font-size: 1.3rem;
+		    }
+		}
+	}
+
+	& > .more-button{
+		.position-1;
+		box-shadow: .05rem .1rem 2rem -.75rem #000;
+		padding: 10px 0;
+		border-radius: 5px;
+		font-size: 2rem;
+		margin-top: 5px;
+		background-color: #FBFBFA;
+		font-weight: bold;
+		&.active{
+			box-shadow: 0 -30rem 15rem -22rem #42B996 inset;
+			animation: background__more_button 3s infinite linear;
+		} 
+	}
+}
+
+.header__logo{
+	font-family: 'Lobster', cursive;
+	color: rgba(10,10,10,1);
+	font-size: 4.5rem;
+} 
+
+@keyframes background__more_button {
+  50% {
+    box-shadow: 0 -15rem 15rem -22rem #FBFBFA inset; 
+  }
+}
