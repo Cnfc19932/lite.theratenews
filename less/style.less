@@ -42,7 +42,7 @@ h2{
 
 *:focus{
     outline: none;
-}
+} 
 
 //--------------------------------------------------------------------------------//
 
@@ -65,10 +65,9 @@ div#page{
 	box-sizing: border-box;
 	height: 6.9rem;
 	& > input.search-panel__input{
-		width: 94%;
+		width: 98%;
 		font-size: 2rem;
 		line-height: 2rem;
-		height: 3rem;
 		text-align: center;
 		font-weight: bold;
 	}
@@ -78,12 +77,13 @@ div#page{
 .menu-level--2,.search-panel{
 	background: #0da176;
 	.position-1;
-	z-index: 1;
+	z-index: 0;
 	margin-top: -7.5rem;
 	transition: .3s;
 	position: relative;
 	&.active{
 		margin-top: 0;
+		z-index: 1;
 	}
 	box-shadow: 0 0 2.75rem -1.5rem #34826b;
 }
@@ -163,11 +163,11 @@ header.header{
 			margin-right: -2.4rem;
 		}
 
-		&.active span.menu-container, &:hover span.menu-container{
+		&.active span.menu-container{
 			transform: rotate(45deg);
 		}
 
-		&.active,&:hover{
+		&.active{
 			background: #0da176;
 		}
 	}
